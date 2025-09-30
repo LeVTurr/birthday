@@ -1,0 +1,178 @@
+<!DOCTYPE html>
+<html lang="ru">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Подарок для Виктории 🎁</title>
+    <link rel="stylesheet" href="style.css">
+    <link href="https://fonts.googleapis.com/css2?family=Montserrat:wght@300;400;600;700&display=swap" rel="stylesheet">
+</head>
+<body>
+    <div id="loading" class="loading-screen">
+        <div class="spinner"></div>
+        <p>Загружаем подарок...</p>
+    </div>
+    <div id="countdown-container" class="container hidden">
+        <div class="countdown-content">
+            <h1>Для тебя готовится нечто особенное! 💫</h1>
+            <p>Твоя персональная капсула времени откроется:</p>
+            <div class="countdown-box">
+                <div class="time-unit">
+                    <span id="days" class="time-number">00</span>
+                    <span class="time-label">дней</span>
+                </div>
+                <div class="time-unit">
+                    <span id="hours" class="time-number">00</span>
+                    <span class="time-label">часов</span>
+                </div>
+                <div class="time-unit">
+                    <span id="minutes" class="time-number">00</span>
+                    <span class="time-label">минут</span>
+                </div>
+                <div class="time-unit">
+                    <span id="seconds" class="time-number">00</span>
+                    <span class="time-label">секунд</span>
+                </div>
+            </div>
+            <div class="hint">⏳ Скоро увидишь, что я приготовил...</div>
+        </div>
+    </div>
+
+    <div id="content-container" class="container hidden">
+        <header class="hero-section">
+            <div class="hero-content">
+                <h1>С Днем Рождения! 🎉</h1>
+                <p class="subtitle">Этот день особенный, и я приготовил для тебя кое-что праздничное</p>
+                <div class="confetti">🎊</div>
+            </div>
+        </header>
+
+        <section class="section message-section">
+            <div class="section-header">
+                <h2>✉️ Письмо Виктории</h2>
+                <div class="decoration">✨</div>
+            </div>
+            <div class="message-content">
+                <div class="letter">
+                    <div class="letter-header">
+                        <span class="date">Дата: 2025 год</span>
+                        <span class="location">Место: Африка</span>
+                    </div>
+                    <div class="letter-body">
+                        <p>Дорогая Виктория!</p>
+                        <p>Поздравляю тебя с этим удивительным днем! Глядя на нашу дружбу из будущего, я вижу, 
+                        как много прекрасных моментов мы пережили вместе. Помнишь, как мы угарали со всего насвете зимой, как сидели у тебя, а из недавнего как выдирали Льву усы? 
+                        Это навсегда останется в моей памяти как светлые моментов.</p>
+                        <p>Ты - невероятный человек с добрым сердцем и сильным характером. В этот день я хочу 
+                        напомнить тебе, что ты заслуживаешь всего самого лучшего, что может предложить жизнь.</p>
+                        <p>Слушай наш саундтрек, смотри на наши фото и помни - каждая мелодия, каждая улыбка 
+                        на этих снимках это часть нашей уникальной истории.</p>
+                        <p>С любовью,<br>Лев 💖</p>
+                    </div>
+                    <div class="letter-footer">
+                        <div class="seal">Вскрыть в день рождения</div>
+                    </div>
+                </div>
+            </div>
+        </section>
+
+        <!-- Музыкальный плеер -->
+        <section class="section player-section">
+            <div class="section-header">
+                <h2>🎵 Саундтрек Нашей Дружбы</h2>
+                <div class="decoration">🎶</div>
+            </div>
+            <div class="player-container">
+                <!-- Текущий трек -->
+                <div class="now-playing">
+                    <img id="current-cover" src="images/cover1.jpg" alt="Обложка трека" class="cover-art">
+                    <div class="track-info">
+                        <div id="current-title" class="track-title">Выбери трек из плейлиста</div>
+                        <div id="current-artist" class="track-artist">Нажми play чтобы начать</div>
+                        <div class="progress-container">
+                            <div id="progress-bar" class="progress-bar"></div>
+                            <div class="time-display">
+                                <span id="current-time">0:00</span>
+                                <span id="duration">0:00</span>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+
+                <!-- Элементы управления -->
+                <div class="controls">
+                    <button id="prev-btn" class="control-btn">⏮</button>
+                    <button id="play-btn" class="control-btn play-pause">▶️</button>
+                    <button id="next-btn" class="control-btn">⏭</button>
+                    <div class="volume-control">
+                        <button id="mute-btn" class="control-btn">🔊</button>
+                        <input id="volume-slider" type="range" min="0" max="100" value="50" class="volume-slider">
+                    </div>
+                </div>
+
+                <!-- Плейлист -->
+                <div class="playlist">
+                    <h3>Наш плейлист 2025</h3>
+                    <div id="track-list" class="track-list">
+                    </div>
+                </div>
+            </div>
+        </section>
+
+        <!-- Галерея -->
+        <section class="section gallery-section">
+            <div class="section-header">
+                <h2>📸 Наши Моменты</h2>
+                <div class="decoration">🌟</div>
+            </div>
+            <div class="gallery-container">
+                <div class="gallery-grid">
+                    <div class="gallery-item">
+                        <img src="assets/photo1.jpg" alt="Наше воспоминание 1" onclick="openModal(this)">
+                        <div class="photo-caption">мы</div>
+                    </div>
+                    <div class="gallery-item">
+                        <img src="assets/photo2.jpg" alt="Наше воспоминание 2" onclick="openModal(this)">
+                        <div class="photo-caption">us</div>
+                    </div>
+                    <div class="gallery-item">
+                        <img src="assets/photo3.jpg" alt="Наше воспоминание 3" onclick="openModal(this)">
+                        <div class="photo-caption">мы</div>
+                    </div>
+                    <div class="gallery-item">
+                        <img src="assets/photo4.jpg" alt="Наше воспоминание 3" onclick="openModal(this)">
+                        <div class="photo-caption">us</div>
+                    </div>
+                    <div class="gallery-item">
+                        <img src="assets/photo5.jpg" alt="Наше воспоминание 3" onclick="openModal(this)">
+                        <div class="photo-caption">мы</div>
+                    </div>
+                    <div class="gallery-item">
+                        <img src="assets/photo6.jpg" alt="Наше воспоминание 3" onclick="openModal(this)">
+                        <div class="photo-caption">us</div>
+                    </div>
+                    <div class="gallery-item">
+                        <img src="assets/photo7.jpg" alt="Наше воспоминание 3" onclick="openModal(this)">
+                        <div class="photo-caption">мы</div>
+                    </div>
+                </div>
+            </div>
+        </section>
+
+        <!-- Футер -->
+        <footer class="footer">
+            <div class="footer-content">
+                <p>Создано с 💖 специально для тебя</p>
+                <div class="footer-decoration">✨ 🎉 💫</div>
+            </div>
+        </footer>
+    </div>
+    <div id="image-modal" class="modal hidden">
+        <span class="close-btn" onclick="closeModal()">&times;</span>
+        <img class="modal-content" id="modal-image">
+        <div id="modal-caption" class="modal-caption"></div>
+    </div>
+
+    <script src="script.js"></script>
+</body>
+</html>
