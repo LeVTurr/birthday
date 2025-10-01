@@ -1,6 +1,6 @@
 // Конфигурация
 const CONFIG = {
-    birthday: '2025-09-04', // ЗАМЕНИ на реальную дату рождения
+    birthday: '2025-10-04', // ЗАМЕНИ на реальную дату рождения
     playlist: [
         {
             id: 1,
@@ -317,4 +317,5 @@ document.getElementById('image-modal').addEventListener('click', function(e) {
 // Инициализация при загрузке страницы
 document.addEventListener('DOMContentLoaded', () => {
     new TimeCapsule();
+
 });
